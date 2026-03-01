@@ -2,6 +2,8 @@ package com.geese.as.Controllers;
 
 import com.geese.as.Users.User;
 import com.geese.as.Validation.UserValidation;
+
+import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +25,8 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password, HttpSession session) {
+    public String valLogin(@RequestParam String username, @RequestParam String password, HttpSession session) {
+        System.out.println("Login attempt:" + username);
         User user = userValidation.getUserByName(username).orElse(null);
         if (user == null || !user.getPassword().equals(password)) {
             return "redirect:/login?error";
@@ -36,5 +39,18 @@ public class LoginController {
     public String logout(HttpSession session) {
         session.invalidate();
         return "redirect:/login";
+    }
+
+    //debug delete later
+    @PostConstruct
+    public void init() {
+        System.out.println("===== LOGIN CONTROLLER LOADED =====");
+    }
+
+    @PostMapping("/test-login")
+    @ResponseBody
+    public String testLogin(@RequestParam String username,
+                            @RequestParam String password) {
+        return "Got: " + username + "/" + password;
     }
 }

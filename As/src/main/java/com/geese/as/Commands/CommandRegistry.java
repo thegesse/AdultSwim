@@ -53,6 +53,14 @@ public class CommandRegistry {
         return command.run();
     }
 
+    public String getHelpText() {
+        StringBuilder help = new StringBuilder();
+        help.append("Commands\n");
+        for (String name : commands.keySet()) {
+            help.append("  - ").append(name).append("\n");
+        }
+        return help.toString();
+    }
     public List<String> getCommandNames() {
         return new ArrayList<>(commands.keySet());
     }

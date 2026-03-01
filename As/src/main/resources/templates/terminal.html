@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Terminal - Geese AS</title>
+</head>
+<body>
+<div class="header">
+    <span>> TERMINAL // USER: <span th:text="${username}"></span></span>
+    <a href="/logout">[DISCONNECT]</a>
+</div>
+
+<div class="command-list">
+    <h3>> COMMANDS</h3>
+    <ul>
+        <li th:each="cmd : ${commands}" th:text="${cmd}" th:onclick="|insertCommand('${cmd}')|"></li>
+    </ul>
+</div>
+
+<div class="terminal" id="terminal">
+    <div class="output-line">Welcome to Geese AS Terminal v1.0</div>
+    <div class="output-line">Type 'help' for available commands</div>
+    <div class="output-line">---</div>
+</div>
+
+<div class="input-line">
+    <span class="prompt">></span>
+    <input type="text" id="commandInput" placeholder="Enter command..." autofocus autocomplete="off">
+</div>
+
+    <script th:src="@{/js/terminal.js}"></script>
+</body>
+</html>
