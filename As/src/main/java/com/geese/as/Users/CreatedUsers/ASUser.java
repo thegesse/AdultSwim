@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class ASUser extends User {
 
-    public ASUser(String username, String password) {
-        super("Code-properly", "Or-Dont");
+    public ASUser() {
+        super("test", "1234");
     }
 
 

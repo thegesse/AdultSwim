@@ -1,0 +1,20 @@
+<!-- src/main/resources/templates/login.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login - Geese AS</title>
+</head>
+<body>
+<div class="login-box">
+    <h1>> SYSTEM ACCESS</h1>
+
+    <div th:if="${error}" class="error" th:text="${error}"></div>
+
+    <form th:action="@{/login}" method="post">
+        <input type="text" name="username" placeholder="USERNAME" required autofocus>
+        <input type="password" name="password" placeholder="PASSWORD" required>
+        <button type="submit"> AUTHENTICATE</button>
+    </form>
+</div>
+</body>
+</html>
