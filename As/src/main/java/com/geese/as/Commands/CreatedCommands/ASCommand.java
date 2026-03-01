@@ -1,7 +1,5 @@
 package com.geese.as.Commands.CreatedCommands;
 
-import com.geese.as.Commands.Command;
-
 public class ASCommand implements Command {
     @Override
     public String getCommandName() {
