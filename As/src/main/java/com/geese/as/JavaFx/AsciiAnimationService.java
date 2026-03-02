@@ -77,13 +77,13 @@ public class AsciiAnimationService {
 
         // First part text(0-8s)
         Text firstText = new Text();
-        firstText.setFont(Font.font("Courier New", 14));
+        firstText.setFont(Font.font("Arial Narrow", 40));
         firstText.setFill(Color.LIME);
         firstText.setTextAlignment(TextAlignment.CENTER);
 
         // Second part text
         Text secondText = new Text();
-        secondText.setFont(Font.font("Courier New", 14));
+        secondText.setFont(Font.font("Arial Narrow", 40));
         secondText.setFill(Color.LIME);
         secondText.setTextAlignment(TextAlignment.CENTER);
         secondText.setOpacity(0);
@@ -117,25 +117,37 @@ public class AsciiAnimationService {
         });
 
         // Animation script
-        String firstPart = "Use Javascript for Backend development";
-        String secondPart = "Or don't";
+        // 1. Initial State for firstText
+        firstText.setText("Plan before coding");
+        firstText.setOpacity(0);
+        firstText.setScaleX(0.85); // Start slightly smaller
+        firstText.setScaleY(0.85);
 
-        // Type first part
-        typewriterWithDuration(firstText, firstPart, 0, 8000, () -> {
-            //Show second part
-            firstText.setOpacity(1);
-            secondText.setText(secondPart);
-            secondText.setOpacity(1);
+// 2. Create the Fade and Scale effects (running for your 8s duration)
+        FadeTransition fadeIn = new FadeTransition(Duration.millis(8000), firstText);
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1);
 
+        javafx.animation.ScaleTransition scaleUp = new javafx.animation.ScaleTransition(Duration.millis(8000), firstText);
+        scaleUp.setToX(1.0);
+        scaleUp.setToY(1.0);
+
+// Play them together
+        javafx.animation.ParallelTransition parallel = new javafx.animation.ParallelTransition(fadeIn, scaleUp);
+        parallel.play();
+
+        parallel.setOnFinished(e -> {
+            // 3. Show second part (Your original 1s delay)
             delay(1000, () -> {
-                secondText.setOpacity(1);
+                secondText.setText("Or don't");
+                secondText.setOpacity(1); // Instant pop-in for the punchline
 
+                // 4. Show logo (Your original 1s delay)
                 delay(1000, () -> {
-                    //Fade in logo
-                    FadeTransition fadeIn = new FadeTransition(Duration.millis(500), asciiText);
-                    fadeIn.setFromValue(0);
-                    fadeIn.setToValue(1);
-                    fadeIn.play();
+                    FadeTransition logoFade = new FadeTransition(Duration.millis(800), asciiText);
+                    logoFade.setFromValue(0);
+                    logoFade.setToValue(1);
+                    logoFade.play();
                 });
             });
         });

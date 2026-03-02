@@ -24,6 +24,6 @@ public class ASAscii implements Ascii {
                 "                                \n" +
                 "                                \n" +
                 "                                \n" +
-                "WE REALLY DONT'T CARE";
+                "WE REALLY DON'T CARE";
     }
 }
