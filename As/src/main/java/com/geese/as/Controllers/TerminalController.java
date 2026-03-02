@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class TerminalController {
@@ -29,8 +30,9 @@ public class TerminalController {
     }
 
     @PostMapping("/terminal/execute")
-    public String execute(HttpSession session, @RequestParam String input) {
-        User user = (User) session.getAttribute("user");
+    @ResponseBody
+    public String execute(HttpSession session, @RequestParam("input") String input) {
+        User user = (User) session.getAttribute("currentUser");
         if (user == null) {
             return "Error: no users";
         }

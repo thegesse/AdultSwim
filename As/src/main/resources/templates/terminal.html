@@ -12,7 +12,11 @@
 <div class="command-list">
     <h3>> COMMANDS</h3>
     <ul>
-        <li th:each="cmd : ${commands}" th:text="${cmd}" th:onclick="|insertCommand('${cmd}')|"></li>
+        <li th:each="cmd : ${commands}"
+            th:text="${cmd}"
+            th:data-command="${cmd}"
+            onclick="insertCommand(this.getAttribute('data-command'))">
+        </li>
     </ul>
 </div>
 

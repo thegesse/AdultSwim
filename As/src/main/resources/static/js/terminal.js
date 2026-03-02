@@ -17,7 +17,6 @@ input.addEventListener('keypress', function(e) {
     }
 });
 
-// Command history navigation
 input.addEventListener('keydown', function(e) {
     if (e.key === 'ArrowUp') {
         e.preventDefault();
@@ -43,9 +42,9 @@ function executeCommand(command) {
     fetch('/terminal/execute', {
         method: 'POST',
         headers: {
-            'Content-Type': 'text/plain',
+            'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: command
+        body: 'input=' + encodeURIComponent(command)
     })
         .then(response => response.text())
         .then(result => {
