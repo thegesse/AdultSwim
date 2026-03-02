@@ -20,7 +20,7 @@ public class ASCommand extends Command {
     private ASText asText;
 
     public ASCommand() {
-        setCommandName("ASCommand");
+        setCommandName("leavingishard");
     }
 
     @Override
@@ -38,7 +38,7 @@ public class ASCommand extends Command {
             String musicPath = "static/sounds/as-theme.mp3";
 
             animationService.play(ascii, text, musicPath, 5000);
-            return "Playing Adult Swim animation with music...";
+            return "Secret command found";
         }
 
         return "Unknown animation. Try: animate as";
