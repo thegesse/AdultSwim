@@ -18,8 +18,6 @@ public class CreatorCommand extends Command {
     protected void validate() {
         super.validate();
 
-        if(getCommandInput() == null || getCommandInput().isBlank()){
-            throw new IllegalArgumentException("invalid command input");
-        }
+
     }
 }

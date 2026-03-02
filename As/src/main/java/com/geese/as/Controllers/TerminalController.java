@@ -36,6 +36,11 @@ public class TerminalController {
         if (user == null) {
             return "Error: no users";
         }
+
+        if (input.trim().equalsIgnoreCase("clear")) {
+            return "{\"action\": \"clear\"}";
+        }
+
         try {
             return commandRegistry.execute(input);
         }catch (Exception e) {

@@ -49,6 +49,9 @@ public class CommandRegistry {
         String args = parts.length > 1 ? parts[1] : null;
 
         Command command = getCommand(commandName);
+        if(command == null) {
+            return "error unknown command" + commandName + "type help to get a list of available commands";
+        }
         command.setCommandInput(args);
         return command.run();
     }

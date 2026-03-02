@@ -19,8 +19,6 @@ public class AboutCommand extends Command {
     protected void validate(){
         super.validate();
 
-        if(getCommandInput() == null || getCommandInput().isBlank()) {
-            throw new IllegalArgumentException("Input required");
-        }
+
     }
 }

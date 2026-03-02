@@ -14,9 +14,6 @@ public class HelpCommand extends Command {
         setCommandName("help");
     }
 
-
-
-
     @Override
     protected String execute() {
         return registry.getHelpText();

@@ -39,6 +39,15 @@ input.addEventListener('keydown', function(e) {
 function executeCommand(command) {
     addOutput('> ' + command);
 
+    // Handle clear locally - no backend call needed
+    if (command.trim().toLowerCase() === 'clear') {
+        terminal.innerHTML = '';
+        addOutput('Screen cleared');
+        addOutput('---');
+        return;  // Don't fetch
+    }
+
+    // All other commands go to backend
     fetch('/terminal/execute', {
         method: 'POST',
         headers: {
