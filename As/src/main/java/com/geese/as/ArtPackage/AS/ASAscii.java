@@ -1,7 +1,9 @@
 package com.geese.as.ArtPackage.AS;
 
 import com.geese.as.ArtPackage.Ascii;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ASAscii implements Ascii {
 
     @Override
@@ -21,6 +23,7 @@ public class ASAscii implements Ascii {
                 "|____/|__/  |__/ \\______/ |____/\n" +
                 "                                \n" +
                 "                                \n" +
-                "                                ";
+                "                                \n" +
+                "WE REALLY DONT'T CARE";
     }
 }
