@@ -10,7 +10,7 @@
 
     <div th:if="${error}" class="error" th:text="${error}"></div>
 
-    <form th:action="@{login}" method="post">
+    <form th:action="@{/login}" method="post">
         <input type="text" name="username" placeholder="USERNAME" required autofocus autocomplete="off">
         <input type="password" name="password" placeholder="PASSWORD" required autocomplete="off">
         <button type="submit">> AUTHENTICATE</button>

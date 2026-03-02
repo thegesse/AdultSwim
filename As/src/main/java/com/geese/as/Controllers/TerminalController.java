@@ -18,7 +18,7 @@ public class TerminalController {
 
     @GetMapping("/terminal")
     public String terminal(HttpSession session, Model model) {
-        User user = (User) session.getAttribute("user");
+        User user = (User) session.getAttribute("currentUser");
         if (user == null) {
             return "redirect:/login";
         }
