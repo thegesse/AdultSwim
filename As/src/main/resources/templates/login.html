@@ -2,11 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Login - Geese AS</title>
-
+    <link rel="stylesheet" th:href="@{/css/login.css}" href="../static/css/login.css">
 </head>
 <body>
 <div class="login-box">
-    <h1>> SYSTEM ACCESS</h1>
+    <h1>> SIGN IN</h1>
 
     <div th:if="${error}" class="error" th:text="${error}"></div>
 

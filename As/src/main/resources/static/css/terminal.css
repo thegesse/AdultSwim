@@ -1,0 +1,87 @@
+:root {
+    --bg-color: #777C6D;
+    --panel-color: #4A4E44;
+    --text-primary: #B7B89F;
+    --text-highlight: #F0F0E4;
+    --border-color: #B7B89F;
+    --font-mono: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header {
+    background-color: var(--panel-color);
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    z-index: 20;
+}
+
+.header a {
+    color: var(--text-highlight);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Full width terminal container */
+.terminal-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 30px; /* Increased padding for a cleaner look without the sidebar */
+    background-color: rgba(46, 49, 42, 0.2);
+    position: relative;
+}
+
+.terminal {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.output-line {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+#commandInput {
+    background: transparent;
+    border: none;
+    color: var(--text-highlight);
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    flex: 1;
+    outline: none;
+}
+
+/* CRT Overlay Effect */
+.terminal-wrapper::after {
+    content: " ";
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.01));
+    background-size: 100% 3px, 3px 100%;
+    pointer-events: none;
+    z-index: 10;
+}

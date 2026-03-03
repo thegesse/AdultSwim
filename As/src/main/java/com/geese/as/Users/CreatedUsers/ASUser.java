@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class ASUser extends User {
 
     public ASUser() {
-        super("Geese", "Peace was never an option");
+        super("Geese", "1234");
     }
 
 

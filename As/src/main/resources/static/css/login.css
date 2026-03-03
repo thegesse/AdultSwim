@@ -1,0 +1,68 @@
+body {
+    background-color: #777C6D;
+    color: #B7B89F;
+    font-family: 'Courier New', Courier, monospace; /* Fits the "terminal" vibe */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-box {
+    background-color: #4A4E44; /* Darker neutral for contrast */
+    padding: 2.5rem;
+    border: 1px solid #B7B89F;
+    box-shadow: 10px 10px 0px #2E312A; /* Brutalist offset shadow */
+    width: 350px;
+}
+
+h1 {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Even spacing between inputs */
+}
+
+input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #B7B89F;
+    color: #F0F0E4; /* Lighter text for typing */
+    padding: 8px 0;
+    outline: none;
+    font-family: inherit;
+}
+
+input::placeholder {
+    color: #B7B89F;
+    opacity: 0.6;
+}
+
+button {
+    background-color: #B7B89F;
+    color: #2E312A;
+    border: none;
+    padding: 12px;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: #F0F0E4;
+    letter-spacing: 1px;
+}
+
+.error {
+    color: #D17A7A; /* Muted red for errors that still fits the palette */
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}

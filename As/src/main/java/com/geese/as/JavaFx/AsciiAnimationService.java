@@ -132,17 +132,17 @@ public class AsciiAnimationService {
         scaleUp.setToX(1.0);
         scaleUp.setToY(1.0);
 
-// Play them together
+
         javafx.animation.ParallelTransition parallel = new javafx.animation.ParallelTransition(fadeIn, scaleUp);
         parallel.play();
 
         parallel.setOnFinished(e -> {
-            // 3. Show second part (Your original 1s delay)
+            // 3. Show second part
             delay(1000, () -> {
                 secondText.setText("Or don't");
                 secondText.setOpacity(1); // Instant pop-in for the punchline
 
-                // 4. Show logo (Your original 1s delay)
+                // 4. Show logo
                 delay(1000, () -> {
                     FadeTransition logoFade = new FadeTransition(Duration.millis(800), asciiText);
                     logoFade.setFromValue(0);

@@ -38,6 +38,7 @@ public class ASCommand extends Command {
             String musicPath = "static/sounds/as-theme.mp3";
 
             animationService.play(ascii, text, musicPath, 5000);
+            System.out.println("as command input");
             return "Secret command found";
         }
 
